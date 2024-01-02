@@ -41,8 +41,7 @@ export default function PostMain({ post }: PostMainCompTypes) {
 
                         
                     </div>
-                    
-
+                    <p className="text-[15px] pb-0.5 break-words md:max-w-[400px] max-w-[300px]">{post.text}</p>
                     <div className="mt-2.5 flex">
                         <div
                             className="relative min-h-[480px] max-h-[580px] max-w-[260px] flex items-center bg-black rounded-xl cursor-pointer"
