@@ -160,7 +160,7 @@ export default function TopNav() {
                     </div>
                 </div>
             </div>
-            {sidenavmain && <SideNavMain />}
+            {sidenavmain && <SideNavMain className={`md:w-1/2 md:h-full fixed top-0 left-0 bg-white z-40 transition-transform duration-300 transform md:translate-x-0`} />}
         </>
     )
 }
