@@ -76,7 +76,6 @@ export default function Profile({ params }: ProfilePageTypes) {
 
                     <ul className="w-full flex items-center pt-4 border-b">
                         <li className="w-60 text-center py-2 text-[17px] font-semibold border-b-2 border-b-black">Videos</li>
-                        <li className="w-60 text-gray-500 text-center py-2 text-[17px] font-semibold">Liked</li>
                     </ul>
 
                     <ClientOnly>
