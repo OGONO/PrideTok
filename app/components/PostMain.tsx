@@ -38,6 +38,8 @@ export default function PostMain({ post }: PostMainCompTypes) {
                                 {post.profile.name}
                             </span>
                         </Link>
+
+                       
                     </div>
 
                     <div className="mt-2.5 flex">
@@ -59,7 +61,7 @@ export default function PostMain({ post }: PostMainCompTypes) {
                             />
                         </div>
                         
-                        
+                        <PostMainLikes post={post} />
                     </div>
                 </div>
             </div>
