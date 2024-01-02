@@ -41,7 +41,7 @@ export default function TopNav() {
     const goTo = () => {
         if (!userContext?.user) return setIsLoginOpen(true)
         router.push('/upload')
-    }className="p-2 text-gray-700 rounded-md outline-none focus:border-gray-400 focus:border h-5 w-5"
+    }
 
     return (
         <>
