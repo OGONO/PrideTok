@@ -3,7 +3,7 @@
 import Comments from "@/app/components/post/Comments"
 import CommentsHeader from "@/app/components/post/CommentsHeader"
 import Link from "next/link"
-import { useEffect } from "react"
+import { useEffect, useState } from "react"  // Added useState
 import { AiOutlineClose } from "react-icons/ai"
 import { BiChevronDown, BiChevronUp } from "react-icons/bi"
 import { useRouter } from "next/navigation"
@@ -21,6 +21,11 @@ export default function Post({ params }: PostPageTypes) {
     let { setCommentsByPost } = useCommentStore()
 
     const router = useRouter()
+    const [isFullScreen, setIsFullScreen] = useState(false);
+
+    const toggleFullScreen = () => {
+        setIsFullScreen(!isFullScreen);
+    };
 
     useEffect(() => { 
         setPostById(params.postId)
@@ -59,7 +64,7 @@ export default function Post({ params }: PostPageTypes) {
                         <AiOutlineClose size="27"/>
                     </Link>
 
-                    <div >
+                    <div>
                         <button 
                             onClick={() => loopThroughPostsUp()}
                             className="absolute z-20 right-4 top-4 flex items-center justify-center rounded-full bg-gray-700 p-1.5 hover:bg-gray-800"
@@ -75,29 +80,28 @@ export default function Post({ params }: PostPageTypes) {
                         </button>
                     </div>
 
-
                     <ClientOnly>
                         {postById?.video_url ? (
                             <video 
-                                className="fixed object-cover w-full my-auto z-[0] h-screen" 
+                                className={`fixed object-cover w-full my-auto z-[0] h-screen ${isFullScreen ? "fullscreen" : ""}`} 
+                                onClick={toggleFullScreen}
                                 src={useCreateBucketUrl(postById?.video_url)}
                             />
                         ) : null}
 
-                        <div className="bg-black bg-opacity-70 lg:min-w-[480px] z-10 relative">
+                        <div className={`bg-black bg-opacity-70 lg:min-w-[480px] z-10 relative ${isFullScreen ? "fullscreen" : ""}`}>
                             {postById?.video_url ? (
                                 <video 
                                     autoPlay
-                                    controls
+                                    controls={!isFullScreen}
                                     loop
-                                    muted
-                                    className="h-screen mx-auto" 
+                                    className={`h-screen mx-auto ${isFullScreen ? "fullscreen" : ""}`} 
+                                    onClick={toggleFullScreen}
                                     src={useCreateBucketUrl(postById.video_url)}
                                 />
                             ) : null}
                         </div>
                     </ClientOnly>
-
                 </div>
 
                 <div id="InfoSection" className="lg:max-w-[550px] relative w-full h-full bg-white">
@@ -113,6 +117,6 @@ export default function Post({ params }: PostPageTypes) {
                 </div>
             </div>
         </>
-        
     )
 }
+
