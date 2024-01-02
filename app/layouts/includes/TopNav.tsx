@@ -43,6 +43,14 @@ export default function TopNav() {
         if (!userContext?.user) return setIsLoginOpen(true)
         router.push('/upload')
     }
+    
+  const [sidenavmain, setSideNavMain] = useState(false);
+
+  const toggleSideNav = () => {
+    setSideNavMain(!sidenavmain);
+  };
+
+    
 
     return (
         <>
@@ -50,10 +58,10 @@ export default function TopNav() {
                 <div className={`flex items-center justify-between gap-6 w-full px-4 mx-auto ${pathname === '/' ? 'max-w-[1150px]' : ''}`}>
                     <div>
                     <button
-                      className="p-2 text-gray-700 rounded-md outline-none focus:border-gray-400 focus:border"
-                      onClick={SideNavMain}
-                        >
-                      <Bars3Icon className="h-5 w-5" />
+                       className="p-2 text-gray-700 rounded-md outline-none focus:border-gray-400 focus:border"
+                       onClick={toggleSideNav}
+                         >
+                     <Bars3Icon className="h-5 w-5" />
                    </button>
                     </div>
                     <Link href="/">
@@ -152,6 +160,7 @@ export default function TopNav() {
                     </div>
                 </div>
             </div>
+            {sidenavmain && <SideNavMain />}
         </>
     )
 }
