@@ -75,6 +75,7 @@ export default function Post({ params }: PostPageTypes) {
                         </button>
                     </div>
 
+                    
 
                     <ClientOnly>
                         {postById?.video_url ? (
@@ -112,6 +113,5 @@ export default function Post({ params }: PostPageTypes) {
                 </div>
             </div>
         </>
-        
     )
 }

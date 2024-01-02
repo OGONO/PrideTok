@@ -39,10 +39,9 @@ export default function PostMain({ post }: PostMainCompTypes) {
                             </span>
                         </Link>
 
-                        <button className="border text-[15px] px-[21px] py-0.5 border-[#F02C56] text-[#F02C56] hover:bg-[#ffeef2] font-semibold rounded-md">
-                            Follow
-                        </button>
+                        
                     </div>
+                    
 
                     <div className="mt-2.5 flex">
                         <div
@@ -52,14 +51,8 @@ export default function PostMain({ post }: PostMainCompTypes) {
                                 id={`video-${post.id}`}
                                 loop
                                 controls
-                                muted
                                 className="rounded-xl object-cover mx-auto h-full" 
                                 src={useCreateBucketUrl(post?.video_url)}
-                            />
-                            <img 
-                                className="absolute right-2 bottom-10" 
-                                width="90" 
-                                src="/images/tiktok-logo-white.png"
                             />
                             <PostMainLikes post={post} />
                         </div>
