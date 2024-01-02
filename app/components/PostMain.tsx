@@ -39,7 +39,9 @@ export default function PostMain({ post }: PostMainCompTypes) {
                             </span>
                         </Link>
 
-                       
+                        <button className="border text-[15px] px-[21px] py-0.5 border-[#F02C56] text-[#F02C56] hover:bg-[#ffeef2] font-semibold rounded-md">
+                            Follow
+                        </button>
                     </div>
 
                     <div className="mt-2.5 flex">
@@ -59,9 +61,10 @@ export default function PostMain({ post }: PostMainCompTypes) {
                                 width="90" 
                                 src="/images/tiktok-logo-white.png"
                             />
+                            <PostMainLikes post={post} />
                         </div>
                         
-                        <PostMainLikes post={post} />
+                        
                     </div>
                 </div>
             </div>
