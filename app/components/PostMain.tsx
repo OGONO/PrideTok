@@ -25,7 +25,7 @@ export default function PostMain({ post }: PostMainCompTypes) {
 
     return (
         <>
-            <div id={`PostMain-${post.id}`} className="flex">
+            <div id={`PostMain-${post.id}`} className="flex border-b py-6">
 
                 <div className="cursor-pointer">
                     <img className="rounded-full max-h-[60px]" width="60" src={useCreateBucketUrl(post?.profile?.image)} />
@@ -39,7 +39,6 @@ export default function PostMain({ post }: PostMainCompTypes) {
                             </span>
                         </Link>
                     </div>
-                    
 
                     <div className="mt-2.5 flex">
                         <div
@@ -53,8 +52,14 @@ export default function PostMain({ post }: PostMainCompTypes) {
                                 className="rounded-xl object-cover mx-auto h-full" 
                                 src={useCreateBucketUrl(post?.video_url)}
                             />
-                            
+                            <img 
+                                className="absolute right-2 bottom-10" 
+                                width="90" 
+                                src="/images/tiktok-logo-white.png"
+                            />
                         </div>
+                        
+                        
                     </div>
                 </div>
             </div>
