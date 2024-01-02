@@ -11,6 +11,7 @@ import { useGeneralStore } from "@/app/stores/general"
 import useCreateBucketUrl from "@/app/hooks/useCreateBucketUrl"
 import { RandomUsers } from "@/app/types"
 import useSearchProfilesByName from "@/app/hooks/useSearchProfilesByName";
+import { Bars3Icon } from "@heroicons/react/16/solid";
 
 export default function TopNav() {    
     const userContext = useUser()
@@ -46,7 +47,13 @@ export default function TopNav() {
         <>
             <div id="TopNav" className="fixed bg-white z-30 flex items-center w-full border-b h-[60px]">
                 <div className={`flex items-center justify-between gap-6 w-full px-4 mx-auto ${pathname === '/' ? 'max-w-[1150px]' : ''}`}>
-
+                    <div>
+                     <Link href="SideNavMain">
+                        <a className="p-2 text-gray-700 rounded-md outline-none focus:border-gray-400 focus:border">
+                            <Bars3Icon className="h-5 w-5" />
+                        </a>
+                      </Link>
+                    </div>
                     <Link href="/">
                      <h1 className="font-bold text-3xl">PrideTok</h1>
                     </Link>
