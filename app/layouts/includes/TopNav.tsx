@@ -12,6 +12,7 @@ import useCreateBucketUrl from "@/app/hooks/useCreateBucketUrl"
 import { RandomUsers } from "@/app/types"
 import useSearchProfilesByName from "@/app/hooks/useSearchProfilesByName";
 import { Bars3Icon } from "@heroicons/react/16/solid";
+import SideNavMain from "./SideNavMain";
 
 export default function TopNav() {    
     const userContext = useUser()
@@ -50,9 +51,10 @@ export default function TopNav() {
                     <div>
                     <button
                       className="p-2 text-gray-700 rounded-md outline-none focus:border-gray-400 focus:border"
+                      onClick={SideNavMain}
                         >
-                    <Bars3Icon className="h-5 w-5" />
-              </button>
+                      <Bars3Icon className="h-5 w-5" />
+                   </button>
                     </div>
                     <Link href="/">
                      <h1 className="font-bold text-3xl">PrideTok</h1>
